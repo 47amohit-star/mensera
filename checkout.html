@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkout</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+</head>
+
+<body>
+
+<h2>Order Summary</h2>
+
+<div id="orders"></div>
+
+<input placeholder="Address"><br>
+<select>
+  <option>Cash on Delivery</option>
+  <option>UPI</option>
+</select><br><br>
+
+<button onclick="placeOrder()">Place Order</button>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let total = 0;
+
+cart.forEach(item => {
+  document.getElementById("orders").innerHTML += 
+    item.name + " - ₹" + item.price + "<br>";
+  total += item.price;
+});
+
+document.getElementById("orders").innerHTML += "<b>Total: ₹"+total+"</b>";
+
+function placeOrder(){
+  alert("Order placed!");
+  localStorage.removeItem("cart");
+}
+</script>
+
+</body>
+</html>

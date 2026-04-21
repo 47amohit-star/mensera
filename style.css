@@ -1,48 +1,153 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #fdf2f5;
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
+/* Body styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #fff0f3, #ffe5ec);
+  overflow-x: hidden;
+}
+
+/* Header */
 header {
+  background: linear-gradient(90deg, #ff4d6d, #ff758f);
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Nav links */
+a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #ffe5ec;
+  transform: scale(1.1);
+}
+
+/* Container */
+.container {
+  padding: 30px;
+  text-align: center;
+}
+
+/* Product cards */
+.product {
+  background: white;
+  padding: 15px;
+  margin: 15px;
+  border-radius: 15px;
+  display: inline-block;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Product hover animation */
+.product:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Glow effect */
+.product::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,77,109,0.3), transparent);
+  top: 0;
+  left: -100%;
+  transition: 0.5s;
+}
+
+.product:hover::before {
+  left: 100%;
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(90deg, #ff4d6d, #ff758f);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(255,77,109,0.5);
+}
+
+/* Inputs */
+input, select {
+  padding: 12px;
+  width: 85%;
+  margin: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #ff4d6d;
+  box-shadow: 0 0 10px rgba(255,77,109,0.3);
+}
+
+/* Hero section (big banner) */
+.hero {
+  height: 60vh;
+  background: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  animation: fadeIn 2s ease;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll animation */
+.product {
+  animation: fadeIn 1s ease;
+}
+
+/* Footer */
+footer {
   background: #ff4d6d;
   color: white;
-  padding: 15px;
-  display:flex;
-  justify-content:space-between;
-}
-
-a {
-  color:white;
-  text-decoration:none;
-  margin:0 10px;
-}
-
-.container {
-  padding:20px;
-}
-
-.product {
-  background:white;
-  padding:10px;
-  margin:10px;
-  border-radius:10px;
-  display:inline-block;
-  width:200px;
-  text-align:center;
-}
-
-button {
-  background:#28a745;
-  color:white;
-  border:none;
-  padding:10px;
-  cursor:pointer;
-  border-radius:5px;
-}
-
-input {
-  padding:10px;
-  width:80%;
-  margin:5px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 30px;
 }
